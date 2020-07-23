@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <h1>ID Number: {{ applicant.id_number }}</h1>
+    <p> <strong> Profile Picture</strong> {{ applicant.profile_picture }}</p>
+    <p> <strong> First Name:</strong> {{ applicant.first_name }}</p>
+    <p> <strong> Last Name:</strong> {{ applicant.last_name }}</p>
+    <p> <strong> Date of Birth:</strong> {{ applicant.date_of_birth }}</p>
+    <p> <strong> Skills:</strong> {{ applicant.skills }}</p>
+    <p> <strong> Email:</strong> {{ applicant.email }}</p>
+    <p> <strong> Mobile:</strong> {{ applicant.mobile }}</p>
+    <p> <strong> Passport Number:</strong> {{ applicant.passport_number }}</p>
+{% endblock %}

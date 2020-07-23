@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+  <br>
+  <br>
+  <h1 class="text-center">All Posted Jobs</h1>
+  <br>
+  <br>
+  {% if jobs_list %}
+  <ul class="text-center">
+    {% for job in jobs_list %}
+    <li>
+      <a href="{{ job.get_absolute_url }}">{{ job.job_name }}</a> ({{ job.employer }})
+    </li>
+    {% endfor %}
+  </ul>
+    {% else %}
+      <p class="text-center">Jobs are yet to be posted on the Job Board. <br>
+        <strong class="text-center">Come Back Again!</strong> </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Applicants Listed Qualifications</p>
+
+{% if qualifications_list %}
+<ul>
+  {% for qualification in qualifications_list %}
+  <a href="{{ qualification.get_absolute_url }}">{{ qualification.course }}</a> ({{ qualification.major }})
+  {% endfor %}
+</ul>
+
+{% else %}
+
+<p>Qualifications are to be submitted.</p>
+
+{% endif %}
+
+{% endblock %}

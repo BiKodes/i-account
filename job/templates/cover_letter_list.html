@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+  <h1>Listed are application letters receieved from applicants.</h1>
+
+    {% if cover_letter_list %}
+    <ul>
+
+        {% for cover_letter in cover_letter_list %}
+          <li>
+              <a href="{{ cover_letter.get_absolute_url }}">{{ cover_letter.cv_attachment }}</a> ({{ cover_letter.description }})
+          </li>
+        {% endfor %}
+
+    </ul>
+
+    {% else %}
+
+      <p>The application letters have not been attached/submitted.</p>
+
+    {% endif %}
+
+{% endblock %}

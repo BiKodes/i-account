@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Qualification: {{ applicant.applicant}}</h1>
+
+  <p> <strong>Institution:</strong> {{ qualification.institution }}</p>
+  <p> <strong>Course:</strong> {{ qualification.course }}</p>
+  <p> <strong>Major:</strong> {{ qualification.major }}</p>
+  <p> <strong>Achivement:</strong> {{ qualification.achivement }}</p>
+  <p> <strong>Start Date:</strong> {{ qualification.start_date }}</p>
+  <p> <strong>End Date:</strong> {{ qualification.end_date }}</p>
+{% endblock %}

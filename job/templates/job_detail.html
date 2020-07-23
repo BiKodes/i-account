@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Job Name: {{ job_name }}</h1>
+
+  <p><strong>Industry:</strong><a href="">{{ job.industry }}</a></p>
+  <p><strong>Employer:</strong><a href="">{{ job.employer }}</a></p>
+  <p><strong>Applicant:</strong><a href="">{{ job.applicant }}</a></p>
+  <p> <strong>Summary:</strong><a href="">{{ job.summary }}</a></p>
+  <p> <strong>Description Detail:</strong> <a href="">{{ job.description_detail}}</a></p>
+  <p> <strong>Education:</strong><a href="">{{ job.education }}</a></p>
+  <p> <strong>Experience:</strong><a href="">{{ job.experience }}</a></p>
+  <p><strong>Skills:</strong><a href="">{{ job.skills }}</a></p>
+  <p> <strong>Terms & Conditions:</strong> <a href="">{{ job.terms_conditions }}</a></p>
+  <p> <strong>Application Date:</strong> <a href="">{{ job.application_date }}</a></p>
+  <p> <strong>Application Deadline:</strong><a href="">{{ job.application_deadline }}</a></p>
+
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Provided Referees</h1>
+
+  {% if referee_list %}
+  <ul>
+    {% for referee in referee_list %}
+      <li>
+          <a href="{{ referee.get_absolute_url }}">{{ referee.full_name }}</a> ({{ referee.mobile }})
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>The applicant has not submitted referees</p>
+  {% endif %}
+
+{% endblock %}

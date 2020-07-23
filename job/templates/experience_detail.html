@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Experience</h1>
+
+  <p> <strong>Employed:</strong> {{ experience.employed }}</p>
+  <p> <strong>Applicant:</strong> {{ experience.applicant }}</p>
+  <p> <strong>Current Employer:</strong> {{ experience.current_employer }}</p>
+  <p> <strong>Last Employer:</strong> {{ experience.last_employer }}</p>
+  <p> <strong>Job Title:</strong> {{ experience.job_title }}</p>
+  <p> <strong>Responsibilities:</strong> {{ experience.responsibilities }}</p>
+  <p> <strong>Start Date:</strong> {{ experience.start_date }}</p>
+  <p> <strong>End Date:</strong> {{ experience.end_date }}</p>
+
+{% endblock %}

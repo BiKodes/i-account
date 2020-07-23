@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+  <h1>This is alist of available applicants.</h1>
+
+    {% if applicants_list %}
+    <ul>
+
+      {% for applicant in applicants_list %}
+        <li>
+            <a href="{{ applicant.get_absolute_url }}">{{ applicant.first_name}}</a> {{ applicant.last_name }} ({{ applicant.mobile }})
+        </li>
+      {% endfor %}
+
+    </ul>
+
+    {% else %}
+      <p>Applicants are yet to submit applications</p>
+    {% endif %}
+
+{% endblock %}

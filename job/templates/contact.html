@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% extends "base.html" %}
+	{% load staticfiles %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--===============================================================================================-->
+
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="lib/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/daterangepicker/daterangepicker.css">
+<!--===========Additional Custom CSS================================================================-->
+
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="{% static 'css/util.css' %}">
+
+<!--===============================================================================================-->
+
+	<script src="lib/jquery/jquery-3.2.1.min.js"></script>
+	<script src="lib/animsition/js/animsition.min.js"></script>
+	<script src="lib/bootstrap/js/popper.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="lib/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+
+
+		});
+	</script>
+	<script src="lib/daterangepicker/moment.min.js"></script>
+	<script src="lib/daterangepicker/daterangepicker.js"></script>
+
+	<script src="lib/countdowntime/countdowntime.js"></script>
+<!--==========Custom JS=============================================================================-->
+	<script src="static/js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+</head>
+<body>
+
+{% block content %}
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form action=""class="contact100-form validate-form" method="post">
+				{% csrf_token %}
+				<span class="contact100-form-title">
+					Contact Us!
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Your Name</span>
+					<input class="input100" type="text" name="name" placeholder="Enter your name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Email</span>
+					<input class="input100" type="text" name="email" placeholder="Enter your email addess">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<span class="label-input100">Mobile</span>
+					<input class="input100" type="text" name="mobile" placeholder="Enter your mobile number">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">Reason</span>
+					<input class="input100" type="text" name="reason" placeholder="Write your reason">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Message</span>
+					<textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="dropDownSelect1"></div>
+{% endblock %}
+</body>
+</html>

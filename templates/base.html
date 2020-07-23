@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+{% load staticfiles %}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ {% block title %}<title>JOB BOARD</title>{% endblock %}
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<!-- Add additional CSS in static file -->
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <script>
+
+    $(document).on("click", ".action-buttons .dropdown-menu", function(e){
+    	e.stopPropagation();
+    });
+    </script>
+
+<!-- // Prevent dropdown menu from closing when click inside the form -->
+
+<!-- /* .navbar .dropdown-menu {
+	color: #999;
+	font-weight: normal;
+	border-radius: 1px;
+	border-color: #e5e5e5;
+	box-shadow: 0 2px 8px rgba(0,0,0,.05);
+} */ -->
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light secondary-color bg-light">
+	<a href="{% url 'home' %}" class="navbar-brand">JOBS<b>BOARD</b></a>
+	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+
+		<div class="navbar-nav">
+			<a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+			<a href="{% url 'employers_list' %}" class="nav-item nav-link">Employers</a>
+      <a href="{% url 'jobs_list' %}" class="nav-item nav-link">Jobs</a>
+      <a href="#" class="nav-item nav-link">Job Seekers</a>
+      <a href="#" class="nav-item nav-link">Flagged</a>
+      <a href="#" class="nav-item nav-link">Articles</a>
+      <a href="#" class="nav-item nav-link">CPA Center</a>
+			<a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+		</div>
+
+		<form class="navbar-form form-inline">
+			<div class="input-group search-box">
+				<input type="text" id="search" class="form-control" placeholder="Search here...">
+				<div class="input-group-append">
+					<span class="input-group-text">
+						<i class="material-icons">&#xE8B6;</i>
+					</span>
+				</div>
+			</div>
+		</form>
+
+		<div class="navbar-nav ml-auto action-buttons">
+			<div class="nav-item dropdown">
+
+				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
+          <div class="dropdown-menu action-form">
+    					<form action="home.html" method="post">
+                {% csrf_token %}
+    						<p class="hint-text">Sign in with your social media account</p>
+
+      						<div class="form-group social-btn clearfix">
+      							<a href="https://www.facebook.com/login/" class="btn btn-secondary facebook-btn float-left"><i class="fa fa-facebook"></i> Facebook</a>
+      							<a href="https://twitter.com/login/" class="btn btn-secondary twitter-btn float-right"><i class="fa fa-twitter"></i> Twitter</a>
+      						</div>
+
+      						<div class="or-seperator"><b>or</b></div>
+
+      						<div class="form-group">
+      							<input type="text" class="form-control" placeholder="Username or Email" required="required">
+      						</div>
+
+      						<div class="form-group">
+      							<input type="password" class="form-control" placeholder="Password" required="required">
+      						</div>
+
+      						<input type="submit" class="btn btn-primary btn-block" value="Login">
+                  <div class="col-sm-10 offset-sm-2">
+                    <label class="form-check-label"><input type="checkbox">Remember me</label>
+                  </div>
+      						<div class="text-center mt-2">
+      							<a href="{% url 'password_reset' %}">Forgot Your password?</a>
+      						</div>
+
+    					</form>
+          </div>
+
+			</div>
+
+			<div class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Sign up</a>
+          <div class="dropdown-menu action-form">
+	          <form action="home.html" method="post">
+              {% csrf_token %}
+  						<p class="hint-text">Fill in this form to create your account!</p>
+
+  						<div class="form-group">
+  							<input type="text" class="form-control" placeholder="Username or Email" required="required">
+  						</div>
+  						<div class="form-group">
+  							<input type="password" class="form-control" placeholder="Password" required="required">
+  						</div>
+  						<div class="form-group">
+  							<input type="password" class="form-control" placeholder="Confirm Password" required="required">
+  						</div>
+              <div class="form-group">
+  							<label class="form-check-label"><input type="checkbox" required="required"><a href="#">Job Seeker</a></label>
+                <label class="form-check-label float-right"><input type="checkbox" required="required"><a href="#">Employer</a></label>
+	            </div>
+  						<div class="form-group">
+  							<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
+	            </div>
+  						<input type="submit" class="btn btn-primary btn-block" value="Sign up">
+
+			      </form>
+				</div>
+			</div>
+    </div>
+	</div>
+</nav>
+
+{% block content %}{% endblock %}
+
+{% block pagination %}
+  {% if is_paginated %}
+    <div class="pagination">
+
+      <span class="page-link">
+          {% if page_obj.has_previous %}
+            <a href="{{ request.path }}?page={{page_obj.previous_page_number }}">Previous</a>
+          {% endif %}
+
+          <span clas="page-current">
+              page{{ page.obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </span>
+
+          {% if page_obj.has_next %}
+            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
+          {% endif %}
+
+      </span>
+
+    </div>
+  {% endif  %}
+{% endblock %}
+</body>
+</html>

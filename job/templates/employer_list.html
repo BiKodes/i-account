@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+  <br>
+  <br>
+  <h1 class="text-center">Professional Employers Available</h1>
+  <br>
+  <br>
+   {% if employer_list %}
+  <ul>
+    {% for employer in employer_list %}
+      <li class="text-center">
+        <a href="{{ employer.get_absolute_url }}">{{ employer.company_name }}</a> {{ employer.email }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Employers are signing up!</p>
+  {% endif %}
+
+{% endblock %}

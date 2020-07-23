@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Applicants experience is as listed:</h1>
+
+  {% if experiences_list %}
+
+    <ul>
+      {% for experience in experiences_list %}
+        <a href="{{ experience.get_absolute_url }}">{{ experience.job_title }}</a>({{ experience.responsibilities }})
+      {% endfor %}
+    </ul>
+
+  {% else %}
+    <p>Applicant has not submitted experience details</p>
+  {% endif %}
+
+{% endblock %}
